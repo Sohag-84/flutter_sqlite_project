@@ -46,7 +46,11 @@ class MyApp extends StatelessWidget {
               }, child: const Text("Update",style: TextStyle(color: Colors.white),),color: Colors.lightBlue),
 
 
-              FlatButton(onPressed: (){}, child: const Text("Delete",style: TextStyle(color: Colors.white),),color: Colors.blueAccent),
+              FlatButton(onPressed: () async{
+                int deleteId = await DatabaseHelper.instance.delete(4);
+                print("Deleted Id : $deleteId");
+
+              }, child: const Text("Delete",style: TextStyle(color: Colors.white),),color: Colors.blueAccent),
             ],
           ),
         ),
